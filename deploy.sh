@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#GUEST_NAME_HERE in deploy.sh needs to be replaced with the WIFI name of the guest network.
+#Assumption is that you only have 3 or less network interfaces. While loop in rotate_guest_wifi_password needs to be increased otherwise
+
 rm rotate_guest_wifi_password.sh
 
 echo $'#!/bin/sh
@@ -10,7 +13,6 @@ echo $password > /root/.guest_password.txt
 
 ssid=WIFI_NAME_HERE
 security=WPA
-#qrencode -o /www/wifi.svg "WIFI:S:${ssid};T:${security};P:${password};;" 
 i=0; 
 while [ $i -le 2 ]; 
     do if [ `uci get wireless.@wifi-iface[$i].network` == \'guest\' ]; then

@@ -1,4 +1,5 @@
 # GuestLedeWifiScript
+Script should be used after each LEDE upgrade to reinstall the proper scripts to automatically change the guest password every day along with provide a UI frontend to easily retrieve the new password.
 
 Used on Openwrt router. 
 

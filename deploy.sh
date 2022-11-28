@@ -57,7 +57,7 @@ if grep -Fxq "rotate_guest_wifi_password.sh" /etc/crontabs/root
 then
     echo "Item already in Crontab"
 else
-    echo "1 0 * * 1 /sbin/rotate_guest_wifi_password.sh" >> /etc/crontabs/root
+    echo "0 1 * * * /sbin/rotate_guest_wifi_password.sh" >> /etc/crontabs/root
 fi
 
 cp rotate_guest_wifi_password.sh /sbin/

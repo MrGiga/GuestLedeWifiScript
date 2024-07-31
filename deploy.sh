@@ -3,7 +3,9 @@
 #WIFI_NAME_HERE in deploy.sh needs to be replaced with the WIFI name of the guest network.
 #Assumption is that you only have 3 or less network interfaces. While loop in rotate_guest_wifi_password needs to be increased otherwise
 
-rm rotate_guest_wifi_password.sh
+if [ -f rotate_guest_wifi_password.sh ]; then
+    rm rotate_guest_wifi_password.sh
+fi
 
 echo $'#!/bin/sh
 
@@ -26,8 +28,10 @@ done;
 
 chmod +x rotate_guest_wifi_password.sh
 
+if [ -f guest ]; then
+    rm guest
+fi
 
-rm guest
 echo $'#!/bin/sh
 
 password=$(cat /root/.guest_password.txt)
